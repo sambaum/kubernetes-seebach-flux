@@ -1,0 +1,4 @@
+bases:
+  - ../../../infrastructure/base/kubernetes-dashboard/
+patches:
+  - dashboard.yaml
