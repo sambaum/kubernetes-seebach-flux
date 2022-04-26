@@ -44,6 +44,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: flame-service
+  namespace: default
 spec:
   selector:
     app: flame
