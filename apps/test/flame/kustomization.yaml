@@ -13,4 +13,4 @@ patches:
         value: [flame.kubus-test.int.sambaum.ch]
       - op: replace
         path: /metadata/annotations/flame.pawelmalak~1url
-        value: https://flame-foo.kubus-test.int.sambaum.ch
+        value: https://flame.kubus-test.int.sambaum.ch
