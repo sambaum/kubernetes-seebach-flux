@@ -29,6 +29,7 @@ metadata:
 spec:
   claimRef:
     name: local-conf-pvc
+    namespace: default
   capacity:
     storage: 5Gi
   accessModes:
@@ -69,6 +70,7 @@ metadata:
 spec:
   claimRef:
     name: local-data-pvc
+    namespace: default
   capacity:
     storage: 5Gi
   accessModes:
@@ -109,6 +111,7 @@ metadata:
 spec:
   claimRef:
     name: local-temp-pvc
+    namespace: default
   capacity:
     storage: 5Gi
   accessModes:
