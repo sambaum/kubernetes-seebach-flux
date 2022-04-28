@@ -2,6 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: openebs-local-hostpath-conf
+  namespace: default
   annotations:
     openebs.io/cas-type: local
     cas.openebs.io/config: |
@@ -19,6 +20,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: openebs-local-hostpath-data
+  namespace: default
   annotations:
     openebs.io/cas-type: local
     cas.openebs.io/config: |
@@ -37,6 +39,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: openebs-local-hostpath-conf-pvc
+  namespace: default
 spec:
   storageClassName: openebs-local-hostpath-conf
   accessModes:
