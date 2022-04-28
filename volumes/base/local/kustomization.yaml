@@ -1,2 +1,2 @@
 resources:
-  - volumes-local-kubus.yaml
+  - volumes.yaml
