@@ -6,5 +6,5 @@ patches:
       name: kube-prometheus-stack
     patch: |-
       - op: replace
-        path: /spec/values/grafana/ingress/hosts/
+        path: /spec/values/grafana/ingress/hosts
         value: grafana.kubus-test.int.sambaum.ch
