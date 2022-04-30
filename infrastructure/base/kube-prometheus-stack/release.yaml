@@ -45,7 +45,8 @@ spec:
         ##
         # hosts:
         #   - grafana.domain.com
-        hosts: []
+        hosts:
+          - "example.com"
 
         ## Path for grafana ingress
         path: /
