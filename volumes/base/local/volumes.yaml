@@ -27,9 +27,6 @@ metadata:
   name: local-conf-pv
   namespace: default
 spec:
-  claimRef:
-    name: local-conf-pvc
-    namespace: default
   capacity:
     storage: 5Gi
   accessModes:
