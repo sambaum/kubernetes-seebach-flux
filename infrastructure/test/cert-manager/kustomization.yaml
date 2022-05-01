@@ -1,0 +1,30 @@
+bases:
+  - ../../base/cert-manager/
+patches:
+  - target:
+      kind: ClusterIssuer
+      name: letsencrypt-staging
+    patch: |-
+      - op: replace
+        path: /spec/acme/email
+        value: samuel.baumgartner@gmail.com
+      - op: replace
+        path: /spec/acme/solvers/0/dns01/cloudflare/email
+        value: samuel.baumgartner@gmail.com
+  - target:
+      kind: ClusterIssuer
+      name: letsencrypt-production
+    patch: |-
+      - op: replace
+        path: /spec/acme/email
+        value: samuel.baumgartner@gmail.com
+      - op: replace
+        path: /spec/acme/solvers/0/dns01/cloudflare/email
+        value: samuel.baumgartner@gmail.com
+  - target:
+      kind: SealedSecret
+      name: cloudflare-api-token-secret
+    patch: |-
+      - op: replace
+        path: /spec/encryptedData/api-token
+        value: AgBLhiXHpJUWF6rTR6C0Mt0mfREjZvwBnNJv9mQoxudrTDi6tjC97FNPJwizypFJmwW2F01E02LsZ/jkfrX61n8qXJ/cO352BLQNj5dvXY4zQB19NQ7m7thCCPYRphDOwieEIpk3OsAnkn+TAcWZkZBs7D33D0Kz7o2Suj00G8hPw2EU3sT5mv8osWXwF97JwbFI8BGp9b4pvXeFMyZ354vMjqFgdx1vPeF7FePsbZ+95X35LTq7xPYuX6q+IpXvpOFsC502+0inSqOi189V4s/NIrh2ryTJxEHTns795jbwt7hPT6hahRfIOefnD0XoTU/q4fiJdfKiSgTwGryLf5YFaFWQHdzZlmANfGESlilv0WFPt54wmTH5Wrxwx/BDmkfVtr43Isyim+JjDrOw1znT83DJPRE6N3+fjeG8jXioUyMSNSmHIW8xNLLBMr1k3vlZlFDlUCRjvCAQ3RHHx2TXhEMdl3Q/cfF8qysuDwmN6RbrHR5tIwosvIoihMq8JKnQJYHR98fg+ukCFJill8cPJGYS0+G0pKC+eWxlYcZnHhGJtHJbqFXWAhSqA15p71RVytgcWYvENWx/Bsy1bB3+JggyyYsuNfYHm6IgMjK2hIvD0Z1hBVdIbIMh4PD0CCYdXuqgZY4iuSii2UM4y6W36w2EaqLBHDNPq1SjFacISbjjbq8PcfarphPtFYkyxXCVNURPiNj3stfEZqE1PnIZ5nNlhZfTzLl0c1IYAHn6kLZyRObSQ+FM
