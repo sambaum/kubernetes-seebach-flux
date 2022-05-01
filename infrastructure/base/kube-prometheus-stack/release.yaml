@@ -19,6 +19,21 @@ spec:
   values:
     grafana:
       enabled: true
+
+      persistence:
+        type: pvc
+        enabled: true
+        storageClassName: openebs-local-hostpath-conf
+        accessModes:
+          - ReadWriteOnce
+        size: 1Gi
+        # annotations: {}
+        finalizers:
+          - kubernetes.io/pvc-protection
+        # selectorLabels: {}
+        subPath: "grafana"
+        existingClaim: openebs-local-hostpath-conf-pvc
+
       ingress:
         ## If true, Grafana Ingress will be created
         ##
