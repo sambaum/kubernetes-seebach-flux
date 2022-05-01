@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- ../../base/helm-repos
+- ../../base/flux-system/helm-repos
