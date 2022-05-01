@@ -6,8 +6,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  dependsOn:
-    - name: volumes
   path: ./apps/test
   prune: true
   sourceRef:
