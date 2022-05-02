@@ -19,7 +19,6 @@ spec:
   values:
     grafana:
       enabled: true
-
       persistence:
         type: pvc
         enabled: true
@@ -33,17 +32,9 @@ spec:
         # selectorLabels: {}
         subPath: "grafana"
         existingClaim: openebs-local-hostpath-conf-pvc
-
       ingress:
-        ## If true, Grafana Ingress will be created
-        ##
         enabled: true
-
-        ## Annotations for Grafana Ingress
-        ##
         annotations:
-          # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-          # kubernetes.io/ingress.class: public
           nginx.ingress.kubernetes.io/configuration-snippet: |
             more_set_headers "X-Frame-Options: allow";
           cert-manager.io/cluster-issuer: letsencrypt-production
@@ -51,19 +42,9 @@ spec:
           flame.pawelmalak/name: Grafana
           flame.pawelmalak/url: https://example.com
           flame.pawelmalak/icon: https://user-images.githubusercontent.com/10999/43383564-afa9ea6c-93db-11e8-855b-de8be4f79756.png
-        ## Labels to be added to the Ingress
-        ##
         labels: {}
-
-        ## Hostnames.
-        ## Must be provided if Ingress is enable.
-        ##
-        # hosts:
-        #   - grafana.domain.com
         hosts:
           - "example.com"
-
-        ## Path for grafana ingress
         path: /
 
         ## TLS configuration for grafana Ingress
@@ -73,3 +54,15 @@ spec:
         # - secretName: grafana-general-tls
         #   hosts:
         #   - grafana.example.com
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    storageSpec:
+     volumeClaimTemplate:
+       spec:
+         storageClassName: openebs-local-hostpath-data
+         accessModes: ["ReadWriteOnce"]
+         resources:
+           requests:
+             storage: 1Gi
