@@ -55,14 +55,14 @@ spec:
         #   hosts:
         #   - grafana.example.com
 
-prometheus:
-  enabled: true
-  prometheusSpec:
-    storageSpec:
-     volumeClaimTemplate:
-       spec:
-         storageClassName: openebs-local-hostpath-data
-         accessModes: ["ReadWriteOnce"]
-         resources:
-           requests:
-             storage: 1Gi
+    prometheus:
+      enabled: true
+      prometheusSpec:
+        storageSpec:
+         volumeClaimTemplate:
+           spec:
+             storageClassName: openebs-local-hostpath-data
+             accessModes: ["ReadWriteOnce"]
+             resources:
+               requests:
+                 storage: 1Gi
