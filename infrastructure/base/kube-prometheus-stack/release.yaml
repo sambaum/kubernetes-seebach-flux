@@ -17,6 +17,11 @@ spec:
     remediation:
       retries: 3
   values:
+    defaultRules:
+      rules:
+        kubeScheduler: false
+    kubeApiServer:
+      enabled: false
     grafana:
       enabled: true
       persistence:
@@ -26,10 +31,8 @@ spec:
         accessModes:
           - ReadWriteOnce
         size: 1Gi
-        # annotations: {}
         finalizers:
           - kubernetes.io/pvc-protection
-        # selectorLabels: {}
         subPath: "grafana"
         existingClaim: openebs-local-hostpath-conf-pvc
       ingress:
@@ -51,11 +54,10 @@ spec:
         - hosts:
           - "example.com"
           secretName: grafana-tls
-
-
     prometheus:
       enabled: true
       prometheusSpec:
+        retention: 30d
         storageSpec:
          volumeClaimTemplate:
            spec:
@@ -64,6 +66,77 @@ spec:
              resources:
                requests:
                  storage: 1Gi
+
+        additionalScrapeConfigs:
+        - job_name: opnsense
+          static_configs:
+          - targets: ['opnsense.int.sambaum.ch:9100']
+            labels:
+              group: 'Firewall'
+          metric_relabel_configs:
+          - source_labels: [device]
+            action: replace
+            regex: "re0"
+            replacement: "LAN"
+            target_label: "device"
+          - source_labels: [device]
+            action: replace
+            regex: "em0"
+            replacement: "WAN"
+            target_label: "device"
+          - source_labels: [device]
+            action: replace
+            regex: "re2_vlan102"
+            replacement: "Quarantine"
+            target_label: "device"
+          - source_labels: [device]
+            action: replace
+            regex: "ovpnc2"
+            replacement: "ExpressVPNNL"
+            target_label: "device"
+          - source_labels: [device]
+            action: drop
+            regex: "re2"
+          - source_labels: [device]
+            action: drop
+            regex: "lo0"
+          - source_labels: [device]
+            action: drop
+            regex: "pflog0"
+        - job_name: proxmox
+          scrape_interval: 5s
+          static_configs:
+          - targets: ['proxmox.int.sambaum.ch:9100']
+            labels:
+              group: 'proxmox'
+        - job_name: diskstation
+          static_configs:
+          - targets: ['nas.int.sambaum.ch:9100']
+            labels:
+              group: 'DiskStation'
+        - job_name: diskstation-snmp
+          static_configs:
+            - targets:
+              - nas.int.sambaum.ch  # SNMP device.
+              labels:
+                Device: '1'
+          metrics_path: /snmp
+          params:
+            module: [synology]
+          relabel_configs:
+            - source_labels: [__address__]
+              target_label: __param_target
+            - source_labels: [__param_target]
+              target_label: instance
+            - target_label: __address__
+              replacement: nas.int.sambaum.ch:9116  # The SNMP exporter's real hostname:port.
+        - job_name: 'uptime'
+          # scrape_interval: 30s
+          scheme: https
+          static_configs:
+            - targets: ['uptime.int.sambaum.ch:443']
+
+
       ingress:
         enabled: true
         annotations:
