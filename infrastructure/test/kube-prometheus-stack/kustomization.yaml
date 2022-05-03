@@ -29,3 +29,17 @@ patches:
       - op: replace
         path: /spec/values/prometheus/ingress/hosts/0
         value: prometheus.kubus-test.int.sambaum.ch
+  - target:
+      kind: HelmRelease
+      name: kube-prometheus-stack
+    patch: |-
+      - op: replace
+        path: /spec/values/prometheus/ingress/tls/0/hosts/0
+        value: prometheus.kubus-test.int.sambaum.ch
+  - target:
+      kind: HelmRelease
+      name: kube-prometheus-stack
+    patch: |-
+      - op: replace
+        path: /spec/values/prometheus/ingress/annotations/flame.pawelmalak~1url
+        value: prometheus.kubus-test.int.sambaum.ch
