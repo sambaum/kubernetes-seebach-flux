@@ -46,11 +46,14 @@ spec:
         hosts:
           - "example.com"
         path: /
-
+        pathType: Prefix
         ## TLS configuration for grafana Ingress
         ## Secret must be manually created in the namespace
         ##
-        tls: []
+        tls:
+        - hosts:
+          - "example.com"
+          secretName: prometheus-tls
         # - secretName: grafana-general-tls
         #   hosts:
         #   - grafana.example.com
@@ -66,3 +69,26 @@ spec:
              resources:
                requests:
                  storage: 1Gi
+      ingress:
+        enabled: false
+        annotations:
+          kubernetes.io/ingress.class: public
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            more_set_headers "X-Frame-Options: allow";
+          flame.pawelmalak/type: application
+          flame.pawelmalak/name: Prometheus
+          flame.pawelmalak/url: https://example.com
+          flame.pawelmalak/icon: https://cdn.iconscout.com/icon/free/png-256/prometheus-282488.png
+        labels: {}
+        hosts:
+          - "example.com"
+        path: /
+        pathType: Prefix
+        ## TLS configuration for Prometheus Ingress
+        ## Secret must be manually created in the namespace
+        ##
+        tls: []
+          # - secretName: prometheus-general-tls
+          #   hosts:
+          #     - prometheus.example.com
