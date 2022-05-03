@@ -20,5 +20,12 @@ patches:
       name: kube-prometheus-stack
     patch: |-
       - op: replace
+        path: /spec/values/grafana/ingress/annotations/flame.pawelmalak~1url
+        value: grafana.kubus-test.int.sambaum.ch
+  - target:
+      kind: HelmRelease
+      name: kube-prometheus-stack
+    patch: |-
+      - op: replace
         path: /spec/values/prometheus/ingress/hosts/0
         value: prometheus.kubus-test.int.sambaum.ch
