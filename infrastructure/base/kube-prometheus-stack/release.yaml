@@ -16,12 +16,16 @@ spec:
   install:
     remediation:
       retries: 3
+
+
   values:
     defaultRules:
       rules:
         kubeScheduler: false
     kubeApiServer:
       enabled: false
+
+
     grafana:
       enabled: true
       persistence:
@@ -54,6 +58,8 @@ spec:
         - hosts:
           - "example.com"
           secretName: grafana-tls
+
+
     prometheus:
       enabled: true
       prometheusSpec:
@@ -66,7 +72,6 @@ spec:
              resources:
                requests:
                  storage: 1Gi
-
         additionalScrapeConfigs:
         - job_name: opnsense
           static_configs:
@@ -117,7 +122,7 @@ spec:
         - job_name: diskstation-snmp
           static_configs:
             - targets:
-              - nas.int.sambaum.ch  # SNMP device.
+              - nas.int.sambaum.ch
               labels:
                 Device: '1'
           metrics_path: /snmp
@@ -129,14 +134,11 @@ spec:
             - source_labels: [__param_target]
               target_label: instance
             - target_label: __address__
-              replacement: nas.int.sambaum.ch:9116  # The SNMP exporter's real hostname:port.
+              replacement: nas.int.sambaum.ch:9116
         - job_name: 'uptime'
-          # scrape_interval: 30s
           scheme: https
           static_configs:
             - targets: ['uptime.int.sambaum.ch:443']
-
-
       ingress:
         enabled: true
         annotations:
