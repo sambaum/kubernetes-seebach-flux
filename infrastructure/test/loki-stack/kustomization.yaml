@@ -1,0 +1,18 @@
+bases:
+  - ../../base/loki-stack/
+# patches:
+#   - target:
+#       kind: HelmRelease
+#       name: loki-stack
+#     patch: |-
+#       - op: replace
+#         path: /spec/values/grafana/ingress/hosts/0
+#         value: grafana.kubus-test.int.sambaum.ch
+
+
+
+
+#           retention_stream:
+#           - selector: '{host="OPNsense.int.sambaum.ch"}'
+#             priority: 1
+#             period: 7d

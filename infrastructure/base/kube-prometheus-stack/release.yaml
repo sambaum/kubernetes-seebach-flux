@@ -4,7 +4,7 @@ metadata:
   name: kube-prometheus-stack
   namespace: default
 spec:
-  releaseName: prometheus-stack
+  releaseName: prometheus-stack # kube-prometheus-stack?
   chart:
     spec:
       chart: kube-prometheus-stack
