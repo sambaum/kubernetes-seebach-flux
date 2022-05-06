@@ -26,4 +26,5 @@ spec:
         nginx.ingress.kubernetes.io/backend-protocol: HTTPS
       hosts:
         - host: example.com
-          paths: /
+          paths:
+            - path: /
