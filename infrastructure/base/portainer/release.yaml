@@ -10,7 +10,7 @@ spec:
       chart: portainer
       sourceRef:
         kind: HelmRepository
-        name: grafana
+        name: portainer
         namespace: flux-system
   interval: 5m
   install:
