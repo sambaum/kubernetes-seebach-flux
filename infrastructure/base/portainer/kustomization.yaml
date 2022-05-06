@@ -1,3 +1,3 @@
 resources:
   - portainer-ingress.yaml
-  - portainer.yaml
+  - release.yaml
