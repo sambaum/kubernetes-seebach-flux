@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: portainer
+  namespace: portainer
+spec:
+  releaseName: portainer
+  chart:
+    spec:
+      chart: portainer
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+        namespace: flux-system
+  interval: 5m
+  install:
+    remediation:
+      retries: 3
+  values:
+    service:
+      type: ClusterIP
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+      hosts:
+        - host: example.com
+          path: /

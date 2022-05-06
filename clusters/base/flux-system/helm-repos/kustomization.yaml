@@ -2,3 +2,4 @@ resources:
 - prometheus-community.yaml
 - sealed-secrets.yaml
 - grafana.yaml
+- portainer.yaml

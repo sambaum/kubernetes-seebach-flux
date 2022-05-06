@@ -14,3 +14,10 @@ patches:
       - op: replace
         path: /metadata/annotations/flame.pawelmalak~1url
         value: https://portainer.kubus-test.int.sambaum.ch
+  - target:
+      kind: HelmRelease
+      name: portainer
+    patch: |-
+      - op: replace
+        path: /spec/values/ingress/hosts/0/host
+        value: portainer2.kubus-test.int.sambaum.ch
