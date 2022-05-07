@@ -8,6 +8,7 @@ resources:
   - namespace.yaml
 configMapGenerator:
   - name: flux-grafana-dashboards
+    namespace: default
     files:
       - ../monitoring-config/control-plane.json
       - ../monitoring-config/cluster.json
