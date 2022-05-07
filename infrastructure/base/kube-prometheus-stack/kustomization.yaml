@@ -6,3 +6,12 @@ metadata:
 resources:
   - release.yaml
   - namespace.yaml
+configMapGenerator:
+  - name: flux-grafana-dashboards
+    files:
+      - ../monitoring-config/control-plane.json
+      - ../monitoring-config/cluster.json
+      - ../monitoring-config/storage.json
+    options:
+      labels:
+        grafana_dashboard: "1"
