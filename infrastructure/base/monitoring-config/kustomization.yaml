@@ -8,6 +8,7 @@ configMapGenerator:
     files:
       - control-plane.json
       - cluster.json
+      - storag.json
     options:
       labels:
         grafana_dashboard: "1"
