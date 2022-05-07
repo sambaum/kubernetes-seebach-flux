@@ -159,3 +159,4 @@ spec:
         - hosts:
           - "example.com"
           secretName: prometheus-tls
+
