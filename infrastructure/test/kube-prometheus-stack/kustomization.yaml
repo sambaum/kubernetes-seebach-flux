@@ -1,5 +1,6 @@
 bases:
   - ../../base/kube-prometheus-stack/
+  - ../../base/monitoring-config/
 patches:
   - target:
       kind: HelmRelease
