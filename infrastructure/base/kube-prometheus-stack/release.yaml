@@ -28,6 +28,9 @@ spec:
 
     grafana:
       enabled: true
+      sidecar:
+        dashboards:
+          searchNamespace: ALL
       persistence:
         type: pvc
         enabled: true
@@ -63,6 +66,9 @@ spec:
     prometheus:
       enabled: true
       prometheusSpec:
+        podMonitorSelector:
+          matchLabels:
+            app.kubernetes.io/part-of: flux
         retention: 30d
         storageSpec:
          volumeClaimTemplate:
