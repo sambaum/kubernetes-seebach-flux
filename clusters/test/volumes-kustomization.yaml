@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
+  dependsOn:
+    - name: crds
   path: ./volumes/test
   prune: true
   sourceRef:
