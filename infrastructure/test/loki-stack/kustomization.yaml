@@ -6,7 +6,7 @@ patches:
       name: loki-stack
     patch: |-
       - op: add
-        path: /spec/values/loki/config
+        path: /spec/values/loki/config/limits_config
         value:
          retention_stream:
          - selector: '{host="OPNsense.int.sambaum.ch"}'
