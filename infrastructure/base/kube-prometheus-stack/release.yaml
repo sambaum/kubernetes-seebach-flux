@@ -47,7 +47,7 @@ spec:
         annotations:
           nginx.ingress.kubernetes.io/configuration-snippet: |
             more_set_headers "X-Frame-Options: allow";
-          cert-manager.io/cluster-issuer: letsencrypt-production
+          cert-manager.io/cluster-issuer: letsencrypt-staging
           flame.pawelmalak/type: application
           flame.pawelmalak/name: Grafana
           flame.pawelmalak/url: https://example.com
@@ -149,7 +149,7 @@ spec:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: public
-          cert-manager.io/cluster-issuer: letsencrypt-production
+          cert-manager.io/cluster-issuer: letsencrypt-staging
           nginx.ingress.kubernetes.io/configuration-snippet: |
             more_set_headers "X-Frame-Options: allow";
           flame.pawelmalak/type: application

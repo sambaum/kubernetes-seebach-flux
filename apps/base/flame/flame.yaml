@@ -60,7 +60,7 @@ metadata:
   name: flame-ingress
   namespace: default
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    cert-manager.io/cluster-issuer: letsencrypt-staging
     flame.pawelmalak/type: application
     flame.pawelmalak/name: Flame
     flame.pawelmalak/url: https://example.com
