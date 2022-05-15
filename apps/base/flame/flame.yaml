@@ -66,6 +66,7 @@ metadata:
     flame.pawelmalak/url: https://example.com
     flame.pawelmalak/icon: https://raw.githubusercontent.com/pawelmalak/unraid-templates/master/templates/icons/flame.png
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - "example.com"
