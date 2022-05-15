@@ -3,3 +3,4 @@ resources:
   - openebs-operator
   - sealed-secrets
   - calico
+  - ingress-nginx
