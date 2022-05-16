@@ -5,4 +5,4 @@ resources:
 - calico.yaml
 - kubernetes-dashboard.yaml
 - ingress-nginx.yaml
-# - portainer.yaml
+- portainer.yaml
