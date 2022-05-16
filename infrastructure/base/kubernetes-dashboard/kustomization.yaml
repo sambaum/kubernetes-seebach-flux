@@ -1,3 +1,4 @@
 resources:
   # - kubernetes-ingress.yaml
   - release.yaml
+  - dashboard-admin.yaml

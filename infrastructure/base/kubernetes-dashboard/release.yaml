@@ -37,9 +37,9 @@ spec:
       hosts:
         - "example.com"
       path: /
-      backend:
-          port:
-            number: 443
+      # backend:
+      #     port:
+      #       number: 443
       pathType: Prefix
       tls:
       - hosts:
