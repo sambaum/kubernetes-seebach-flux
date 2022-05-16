@@ -17,7 +17,7 @@ spec:
     crds: Create
   interval: 1m0s
   releaseName: kubernetes-dashboard
-  targetNamespace: default
+  targetNamespace: kube-system
   upgrade:
     crds: CreateReplace
   values:
