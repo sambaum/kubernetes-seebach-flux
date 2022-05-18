@@ -8,7 +8,7 @@ spec:
   interval: 1m0s
   dependsOn:
     - name: infrastructure
-  path: ./core
+  path: ./core/test
   prune: true
   sourceRef:
     kind: GitRepository
