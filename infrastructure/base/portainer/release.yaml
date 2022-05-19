@@ -21,13 +21,13 @@ spec:
   values:
     service:
       type: ClusterIP
-    # persistence:
-    #   enabled: true
-    #   storageClass: openebs-local-hostpath-conf
-    #   accessMode: ReadWriteOnce
-    #   size: 1Gi
-    #   subPath: "portainer"
-    #   existingClaim: openebs-local-hostpath-conf-pvc
+    persistence:
+      enabled: true
+      storageClass: openebs-local-hostpath-conf
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      subPath: "portainer"
+      existingClaim: openebs-local-hostpath-conf-pvc
     ingress:
       enabled: true
       # ingressClassName: nginx
