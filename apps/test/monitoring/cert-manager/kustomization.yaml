@@ -1,0 +1,36 @@
+bases:
+  - ../../base/cert-manager/
+patches:
+  - target:
+      kind: ClusterIssuer
+      name: letsencrypt-staging
+    patch: |-
+      - op: replace
+        path: /spec/acme/email
+        value: samuel.baumgartner@gmail.com
+      - op: replace
+        path: /spec/acme/solvers/0/dns01/cloudflare/email
+        value: samuel.baumgartner@gmail.com
+  - target:
+      kind: ClusterIssuer
+      name: letsencrypt-production
+    patch: |-
+      - op: replace
+        path: /spec/acme/email
+        value: samuel.baumgartner@gmail.com
+      - op: replace
+        path: /spec/acme/solvers/0/dns01/cloudflare/email
+        value: samuel.baumgartner@gmail.com
+  - target:
+      kind: SealedSecret
+      name: cloudflare-api-token-secret
+    patch: |-
+      - op: replace
+        path: /spec/encryptedData/api-token
+        value: AgAeni7ifg//kpCtPJ9i8379t0kpoSNhx1x+1VzVBHvm0VVhlhyZ3qQ05VEzxPXKzFLgCQ588CQE/Ko5MSmvqJOfyx7m44LqpXMl3kT+nHtQECzTmGOy/vLZUxf10h8PbAONyz+EAzUTqKrx3tGWJB7EpBdtiwxwfLjVi+hfgo3tNALhJ4f7njPifoicS4ZJIOcam7XsJO4kXDyy5w178hEP4xNpt6o7vz9ukv+8pdL+RwsNPtcgkZ5XeqD8w9CuZv+w3612HpqVw/Gs2ug0wCJFcRF+SZdg/+cmgNsAwm4s1nTxdhQlBfujnhlsZwb9oDqVC0HJoKI7sIP8EU18uFmPOhN6loWIOl9JPcz/YD1pRqDWnxRlcC+MpML0I235PArTzuZrzL6ickB5kOpdE4w2KPanxf7+M8M8B0cNMwg1uMTRIbMEisku0PdoahzAfTm+/o9rdTjrv85oHwA+SUf7qGSs3tO3WXtZFQv3OaHclooSFZ+PygecuCqaT/vzFqyvEueDRmmmgUnGMl6bKVfFI3+sHLPkjg2kDgyY7zbcbGEsSfnNmQ78sao+pa3cSJZP9o9dE4MObbz1x8R0rYiiwc6OGRFBAAu0Ba7R+UVg6JGURlIGa9T74BSB8Fje5x4bHnGjpT75HJD1D/4P2yx5v6VbUEIoklcqy7/Civcc9bVX/uAaQlq3RMHQzaQjAdOUX6NnQdL5LYid9UuZ1ggyTGEb1yM3BdTgAI5hzYqnLitqxUVIYWVM
+
+# kubectl create secret generic cloudflare-api-token-secret -n cert-manager --dry-run=client --from-literal=api-token=mysecretvalue -o yaml | \
+# kubeseal \
+#   --controller-name=sealed-secrets-controller \
+#   --controller-namespace=flux-system \
+#   --format yaml > letsencrypt-secret-temp.yaml

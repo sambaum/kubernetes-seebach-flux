@@ -1,0 +1,6 @@
+resources:
+  - cert-manager
+  - kube-prometheus-stack
+  - kubernetes-dashboard
+  - loki-stack
+  - portainer
