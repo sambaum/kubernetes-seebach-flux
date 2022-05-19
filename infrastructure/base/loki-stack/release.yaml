@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: loki-stack
-  namespace: default
+  namespace: monitoring
 spec:
   releaseName: loki-stack
   chart:
@@ -22,7 +22,7 @@ spec:
       isDefault: false
       persistence:
         enabled: true
-        storageClassName: openebs-local-hostpath-data
+        storageClassName: openebs-local-hostpath-monitoring-data
         accessModes:
           - ReadWriteOnce
         size: 1Gi
