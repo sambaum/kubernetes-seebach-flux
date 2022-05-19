@@ -6,14 +6,14 @@ metadata:
   namespace: default
 spec:
   releaseName: portainer
-  targetNamespace: flux-system
+  targetNamespace: default
   chart:
     spec:
       chart: portainer
       sourceRef:
         kind: HelmRepository
         name: portainer
-        namespace: default
+        namespace: flux-system
   interval: 1m
   install:
     remediation:
