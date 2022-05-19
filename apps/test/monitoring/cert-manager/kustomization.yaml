@@ -1,5 +1,5 @@
 bases:
-  - ../../base/cert-manager/
+  - ../../../base/cert-manager/
 patches:
   - target:
       kind: ClusterIssuer

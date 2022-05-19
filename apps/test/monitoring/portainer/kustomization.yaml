@@ -1,5 +1,5 @@
 bases:
-  - ../../base/portainer/
+  - ../../../base/portainer/
 patches:
   - target:
       kind: Ingress

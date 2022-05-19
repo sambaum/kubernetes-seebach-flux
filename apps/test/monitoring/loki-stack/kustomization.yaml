@@ -1,5 +1,5 @@
 bases:
-  - ../../base/loki-stack/
+  - ../../../base/loki-stack/
 patches:
   - target:
       kind: HelmRelease

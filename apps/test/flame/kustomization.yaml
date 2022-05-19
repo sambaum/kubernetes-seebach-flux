@@ -1,5 +1,5 @@
 bases:
-  - ../../../apps/base/flame/
+  - ../../base/flame/
 patches:
   - target:
       kind: Ingress

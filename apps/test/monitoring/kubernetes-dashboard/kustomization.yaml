@@ -1,5 +1,5 @@
 bases:
-  - ../../base/kubernetes-dashboard/
+  - ../../../base/kubernetes-dashboard/
 patches:
   - target:
       kind: Ingress

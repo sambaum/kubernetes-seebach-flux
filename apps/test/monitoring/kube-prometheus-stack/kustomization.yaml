@@ -1,5 +1,5 @@
 bases:
-  - ../../base/kube-prometheus-stack/
+  - ../../../base/kube-prometheus-stack/
 patches:
   - target:
       kind: HelmRelease
