@@ -12,11 +12,12 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
+        namespace: flux-system
       # version: 'v3.23.0'
   install:
     crds: Create
   interval: 1m0s
   releaseName: ingress-nginx
-  targetNamespace: default # ingress-nginx
+  targetNamespace: flux-system
   upgrade:
     crds: CreateReplace
