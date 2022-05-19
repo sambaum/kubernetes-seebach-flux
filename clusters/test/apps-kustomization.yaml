@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 1m0s
   dependsOn:
-    - name: core
+    - name: volumes
   path: ./apps/test
   prune: true
   sourceRef:

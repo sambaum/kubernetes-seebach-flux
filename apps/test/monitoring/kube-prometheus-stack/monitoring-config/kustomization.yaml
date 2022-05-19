@@ -1,2 +1,2 @@
 bases:
-  - ../../base/kube-prometheus-stack/
+  - ../../base/kube-prometheus-stack/monitoring-config/
