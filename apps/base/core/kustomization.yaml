@@ -1,3 +1,4 @@
 resources:
-  - kube-prometheus-stack
+  - cert-manager
   - kubernetes-dashboard
+  - portainer
