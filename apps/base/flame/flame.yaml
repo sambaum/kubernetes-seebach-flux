@@ -36,6 +36,7 @@ spec:
            value: "Europe/Zurich"
          - name: PASSWORD
            value: "password"
+    serviceAccountName: flame
     volumes:
       - name: config
         persistentVolumeClaim:
