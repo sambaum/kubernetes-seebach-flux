@@ -1,5 +1,5 @@
 resources:
-  - ../../base/flame/
+  - ../../base/default/flame/
 patches:
   - target:
       kind: Ingress
