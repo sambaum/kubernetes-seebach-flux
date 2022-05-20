@@ -4,3 +4,4 @@ resources:
   - sealed-secrets
   - calico
   - ingress-nginx
+  - podmonitor
