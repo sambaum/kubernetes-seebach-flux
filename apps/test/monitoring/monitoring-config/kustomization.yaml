@@ -1,2 +1,2 @@
-bases:
+resources:
   - ../../../base/monitoring/monitoring-config/

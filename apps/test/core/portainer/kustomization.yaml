@@ -1,4 +1,4 @@
-bases:
+resources:
   - ../../../base/core/portainer/
 patches:
   - target:

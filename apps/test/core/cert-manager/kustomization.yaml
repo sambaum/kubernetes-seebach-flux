@@ -1,4 +1,4 @@
-bases:
+resources:
   - ../../../base/core/cert-manager/
 patches:
   - target:
