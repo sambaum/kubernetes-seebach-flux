@@ -6,9 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  dependsOn:
-    - name: core
-  path: ./infrastructure/test
+  path: ./infrastructure
   prune: true
   sourceRef:
     kind: GitRepository
