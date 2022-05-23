@@ -1,12 +1,22 @@
-namespace: metallb-system
-
 resources:
-  - github.com/metallb/metallb//manifests?ref=v0.12.1
+  - helmrepository.yaml
+  - release.yaml
 
-configMapGenerator:
-- name: config
-  files:
-    - config.yaml
 
-generatorOptions:
- disableNameSuffixHash: true
+
+
+
+
+
+# namespace: metallb-system
+#
+# resources:
+#   - github.com/metallb/metallb//manifests?ref=v0.12.1
+#
+# configMapGenerator:
+# - name: config
+#   files:
+#     - config.yaml
+#
+# generatorOptions:
+#  disableNameSuffixHash: true
