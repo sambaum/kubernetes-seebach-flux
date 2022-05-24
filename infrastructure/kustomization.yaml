@@ -6,3 +6,4 @@ resources:
   - calico
   - ingress-nginx
   - podmonitor
+  - metallb
