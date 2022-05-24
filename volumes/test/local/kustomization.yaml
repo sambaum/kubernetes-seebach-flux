@@ -1,5 +1,5 @@
 resources:
-  - ../../../base/volumes/local/
+  - ../../base/local/
 patches:
   - target:
       kind: PersistentVolume
