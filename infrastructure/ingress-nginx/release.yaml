@@ -22,5 +22,3 @@ spec:
   targetNamespace: flux-system
   upgrade:
     crds: CreateReplace
-  values:
-    loadBalancerIP: 192.168.1.32
